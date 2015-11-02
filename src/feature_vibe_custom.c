@@ -26,6 +26,9 @@ static void main_window_load(Window *window) {
   text_layer_set_font(s_text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
   text_layer_set_text_alignment(s_text_layer, GTextAlignmentCenter);
   layer_add_child(window_layer, text_layer_get_layer(s_text_layer));
+#ifdef PBL_ROUND
+  text_layer_enable_screen_text_flow_and_paging(s_text_layer, 8);
+#endif
 }
 
 static void main_window_unload(Window *window) {
